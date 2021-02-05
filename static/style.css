@@ -1,0 +1,85 @@
+#name-panel {
+  margin: 250px 0;
+  padding: 40px 0;
+  border-top: 4px solid #007bff;
+}
+
+#info-paragraph {
+  margin: 0 0 35px 0;
+}
+
+#message-form {
+  display: none;
+}
+
+.fa-comments {
+  padding: 0 10px 0 10px;
+}
+
+#dashboard-header, #channel-create-header, #channel-create-form, #channel-header {
+  margin: 20px 0 25px 0;
+}
+
+.channel-create-col {
+  padding: 20px;
+}
+
+#dashboard-content {
+  margin: 50px 0 50px 0;
+}
+
+.dashboard-col {
+  margin: 0 20px;
+  border-top: 4px solid #007bff;
+}
+
+.title {
+  margin: 10px 0;
+}
+
+#create-channel {
+  margin: 50px 0;
+}
+
+.btn-leave {
+  padding: 5px 10px;
+}
+
+.channel-list, .message-list {
+  list-style: none;
+  padding: 0;
+}
+
+.badge {
+  margin: 0 5px;
+}
+
+li {
+  padding: 10px 20px;
+}
+
+li:hover{
+  background-color: #f2f2f2;
+}
+
+.channel-list-item {
+  text-decoration: none;
+  color: #000000;
+}
+
+.channel-list-item:hover {
+  text-decoration: none;
+  color: #000000;
+}
+
+.timestamp {
+  margin-left: 5px;
+}
+
+.delete-channel {
+  color: red;
+}
+
+.delete-channel:hover {
+  font-weight: bold;
+}

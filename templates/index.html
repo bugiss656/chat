@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="container shadow" id="name-panel">
+  <div class="row justify-content-center">
+    <i class="far fa-comments" style="font-size: 68px;"></i>
+    <h1 class="display-4">ChatApp</h1>
+  </div>
+
+  <div class="row justify-content-center" id="info-paragraph">
+    <p class="lead">Enter your name to join chat channels and start conversation</p>
+  </div>
+
+  <div class="row justify-content-center">
+    {% include 'includes/_flashMessages.html' %}
+  </div>
+
+  <div class="row justify-content-center">
+    <form id="form" method="post">
+      <div class="input-group">
+        <input class="form-control" autocomplete="off" id="name" name='name' placeholder="Enter name">
+        <input type="submit" id="submit-data" class="btn btn-outline-primary" value="Submit">
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

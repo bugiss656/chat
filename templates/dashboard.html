@@ -1,0 +1,62 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="row" id="dashboard-header">
+  <h3>
+    <i class="fas fa-cogs"></i>
+    Dashboard,
+    <small class="text-muted">signed as: <u>{{ session['name'] }}</u><i class="fas fa-user" style="padding-left: 3px;"></i></small>
+  </h3>
+  <a href="/logout" class="btn-leave">
+    <button class="btn btn-outline-danger btn-sm">Logout</button>
+  </a>
+</div>
+<hr>
+<div class="row" id="dashboard-content">
+  <div class="col-md-5 shadow dashboard-col">
+    <p class="lead title">Join channels:</p>
+    <hr>
+    <ul class="channel-list">
+      {% for channel in channels %}
+        <a class="channel-list-item" href="/channel/{{ channel['channel_name'] }}">
+          <li>
+            <b># {{ channel['channel_name'] }}</b><span class="badge badge-secondary">, created by {{ channel['creator'] }}</span>
+          </li>
+        </a>
+      {% endfor %}
+    </ul>
+  </div>
+  <div class="col-md-5 shadow dashboard-col">
+    <p class="lead title">Your channels:</p>
+    <hr>
+    <ul class="channel-list">
+      {% for channel in channels %}
+        {% if channel['creator'] == session['name'] %}
+          <li>
+            <div class="row justify-content-between">
+              <div class="col-6">
+                <a class="channel-list-item" href="/channel/{{ channel['channel_name'] }}">
+                  <b># {{ channel['channel_name'] }}</b>
+                </a>
+              </div>
+              <div class="col-3">
+                <a class="channel-list-item" href="/deleteChannel/{{ channel['channel_name'] }}">
+                  <div class="delete-channel">
+                    DELETE
+                  </div>
+                </a>
+              </div>
+            </div>
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+<hr>
+<div class="row" id="create-channel">
+  <a href="/createChannel">
+    <button class="btn btn-outline-primary btn-lg">Create channel</button>
+  </a>
+</div>
+{% endblock %}

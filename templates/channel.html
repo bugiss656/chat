@@ -1,0 +1,49 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="row" id="channel-header">
+  <h3>
+    <i class="fas fa-code-branch"></i>
+    Channel:
+    <small class="text-muted"><u>#{{ session['current_channel'] }}</u></small>
+  </h3>
+  <a href="/leaveChannel">
+    <button class="btn btn-outline-danger btn-sm" id="leave-channel" style="margin: 3px 3px;">Leave channel</button>
+  </a>
+</div>
+<hr>
+
+<p class="lead">Messages:</p>
+
+<ul class="message-list" id="message-box">
+  {% for item in messages %}
+    {% if item.on_channel == session['current_channel'] %}
+      <li>
+        <div class="row">
+          <b>{{ item.user }}</b><span class="timestamp"><small>{{ item.date }}</small></span>
+        </div>
+        <div class="row">
+          {{ item.message }}
+        </div>
+      </li>
+    {% endif %}
+  {% endfor %}
+</ul>
+
+<button class="btn btn-outline-primary" id="join-channel">Join conversation</button>
+
+<form id="message-form">
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="input-group input-group mb-3">
+        <input type="text" class="form-control" id="message-input" autocomplete="off" placeholder="Message...">
+        <div class="input-group-append">
+          <button type="submit" class="btn btn-outline-primary" id="send-message">
+            <i class="fas fa-share"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+{% endblock %}
